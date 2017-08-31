@@ -14,12 +14,38 @@
                         </div>
                     @endif
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <button class="btn btn-success">Crear Nuevo Post </button>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="{{asset('nuevopost')}}" class="btn btn-success">Nuevo Post</a>
+                              
+                            </div>
+                           
+
                         </div>
+                        </br>
+                        @if (count($posts) == 0)
+                            <label> Aun no hay posts en el sistema</label>
+                        @else
+                            <div class="row">
+                                @foreach ($posts as $post)
+                                <div class="col-md-12">
+                                   
+                                        <p>Titulo: {{ $post->titulo }}</p>
+                                        <p>Contenido: {{ $post->cuerpo }}</p>
+                                                      
+                                  
+                                    
+                                </div>
+
+
+                                <div class="col-md-6 text-right">
+                                    <a href="post/{{$post->id}}" class="text-right">comentar</a>
+                                </div>
+                                @endforeach
+                            </div>
+                        @endif
                             
-                    </div>
+                  
                 </div>
             </div>
         </div>
