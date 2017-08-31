@@ -15,6 +15,16 @@
                     @endif
                  
                     <form id="form-proveedor" name="form-proveedor" action="agregar" method="post" enctype="multipart/form-data" class="horizontal-form">
+                        @if ($errors->any())
+                                        <div class="note note-danger">
+                                            <h4 class="block">Debe Completar los siguientes campos:</h4>
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                        @endif
               
                         <div class="row">
                             
